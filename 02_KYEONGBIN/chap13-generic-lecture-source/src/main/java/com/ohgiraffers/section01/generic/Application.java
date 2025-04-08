@@ -35,6 +35,6 @@ public class Application {
         genericTest<Double> gt3 = new genericTest<>();
         gt3.setValue(10.0);
         System.out.println(gt3.getValue());
-        System.out.println(gt3.getValue() instanceof Double);   
+        System.out.println(gt3.getValue() instanceof Double);
     }
 }
