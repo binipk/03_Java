@@ -5,58 +5,49 @@ import java.io.*;
 public class Application2 {
 
     public static void main(String[] args) {
-
         /*
-         📌 [1] BufferedReader + InputStreamReader + System.in
-
-         - System.in : 바이트 기반 입력 스트림 (키보드 입력)
-         - InputStreamReader : 바이트 → 문자 변환
-         - BufferedReader : 문자 스트림을 한 줄 단위로 읽음 (readLine())
-
-         👉 한 줄 입력 받아 출력하기
-         */
+         * 형변환 보조스트림
+         * 기본 스트림이 byte기반스트림이고, 보조스트림이 char기반 스트림인 경우에 사용한다.
+         *
+         * 표준 스트림
+         * 자바에서는 콘솔이나 키보드 같은 표준 입출력 장치로부터 데이터를 입출력하기 위한 스트림을
+         * 표준 스트림 형태로 제공하고 있다. System클래스의 필드 in, out, err가 대상 데이터에 스트림을 의미한다.
+         * System.in(InputStream) : 콘솔로부터 데이터를 입력받는다.
+         * System.out(PrintStream) : 콘솔로 데이터를 출력한다.
+         * System.err(PrintStream) : 콘솔로 데이터를 출력한다.
+         * 즉 자주 사용되는 자원에 대해 미리 스트림을 생성해 두었기 때문에 개발자가 별도로 스트림을 생성하지 않아도 된다.
+         * */
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         try {
-            System.out.println("Enter string");
-            String value = br.readLine();  // 한 줄 입력
+            System.out.print("문자열 입력 : ");
+            String value = br.readLine();
 
-            System.out.println("value = " + value); // 입력한 문자열 출력
-        } catch (Exception e) {
+            System.out.println("value = " + value);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
             if (br != null) {
                 try {
-                    br.close();  // 스트림 닫기
-                } catch (Exception e) {
+                    br.close();
+                } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
         }
 
-        System.out.println("-------------------------------------------------------------");
-
-        /*
-         📌 [2] BufferedWriter + OutputStreamWriter + System.out
-
-         - System.out : 바이트 기반 출력 스트림 (콘솔 출력)
-         - OutputStreamWriter : 문자 → 바이트 변환
-         - BufferedWriter : 문자 스트림을 버퍼에 담아 출력
-
-         👉 문자열을 콘솔에 출력
-         */
+        /*===========================================================================*/
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         try {
-            bw.write("java mysql jdbc hahahahahahhaha? comback home");
-            bw.flush();  // 버퍼 비워서 출력
+            bw.write("java mysql jdbc hahahahahahahaha comeback home");
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
             if (bw != null) {
                 try {
-                    bw.close();  // flush 포함한 자원 해제
-                } catch (Exception e) {
+                    bw.close();
+                } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }

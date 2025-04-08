@@ -1,11 +1,13 @@
 package src.main.java.com.ohgiraffers.io.member;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Member implements Serializable {
     /**
      *
      */
+    @Serial
     private static final long serialVersionUID = 1L;
     private String userId;
     private String userPwd;
@@ -15,6 +17,7 @@ public class Member implements Serializable {
     private char gender;
     private double point;
     public Member(){}
+
     public Member(String userId, String userPwd, String userName){
         this.userId = userId;
         this.userPwd= userPwd;
@@ -28,6 +31,7 @@ public class Member implements Serializable {
         this.gender = gender;
         this.point = point;
     }
+
     public String getUserId() {
         return userId;
     }
@@ -52,7 +56,8 @@ public class Member implements Serializable {
     public void setUserId(String userId) {
         this.userId = userId;
     }
-    public void setUserPwd(String userPwd) {this.userPwd = userPwd;
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd;
     }
     public void setUserName(String userName) {
         this.userName = userName;

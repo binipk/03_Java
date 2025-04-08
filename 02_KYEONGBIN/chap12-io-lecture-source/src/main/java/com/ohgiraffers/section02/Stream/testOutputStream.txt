@@ -1,11 +1,2 @@
 abcdef
-gcdeabcdef
-gcdeabcdef
-gcdeabcdef
-gcdeabcdef
-gcdeabcdef
-gcdeabcdef
-gcdeabcdef
-gcdeabcdef
-gcdeabcdef
 gcde

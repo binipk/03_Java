@@ -6,19 +6,19 @@ public class MemberDTO implements java.io.Serializable {
     private String pwd;
     private String name;
     private String email;
-    private int age;
+    private int aga;
     private char gender;
     private double point;
 
     public MemberDTO() {
     }
 
-    public MemberDTO(String id, String pwd, String name, String email, int age, char gender, double point) {
+    public MemberDTO(String id, String pwd, String name, String email, int aga, char gender, double point) {
         this.id = id;
         this.pwd = pwd;
         this.name = name;
         this.email = email;
-        this.age = age;
+        this.aga = aga;
         this.gender = gender;
         this.point = point;
     }
@@ -55,12 +55,12 @@ public class MemberDTO implements java.io.Serializable {
         this.email = email;
     }
 
-    public int getAge() {
-        return age;
+    public int getAga() {
+        return aga;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setAga(int aga) {
+        this.aga = aga;
     }
 
     public char getGender() {
@@ -81,14 +81,14 @@ public class MemberDTO implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return "[" +
+        return "MemberDTO{" +
                 "id='" + id + '\'' +
                 ", pwd='" + pwd + '\'' +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", age=" + age +
+                ", aga=" + aga +
                 ", gender=" + gender +
                 ", point=" + point +
-                ']';
+                '}';
     }
 }

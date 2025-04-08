@@ -5,53 +5,60 @@ import java.io.*;
 public class Application1 {
 
     public static void main(String[] args) {
+        /*
+         * java.io 패키지의 입출력 스트림은 기본스트림과 필터스트림으로 분류할 수 있다.
+         * 기본 스트림은 외부 데이터에 직접 연결되는 스트림이고
+         * 필터스트림은 외부 데이터에 직접 연결하는 것이 아니라 기본 스트림에 추가로 사용할 수 있는
+         * 스트림이다. 주로 성능을 향상시키는 목적으로 사용되며 생성자를 보면 구분이 가능하다.
+         * 생성자쪽에 매개변수로 다른 스트림을 이용하는 클래스는 필터스트림이라고 볼 수 있다.
+         * */
 
-        // 1. 파일 쓰기 (BufferedWriter 사용)
         BufferedWriter bw = null;
+
         try {
-            // 기본 스트림인 FileWriter에 필터 스트림 BufferedWriter를 연결
             bw = new BufferedWriter(
                     new FileWriter("src/main/java/com/ohgiraffers/section03/filterstream/testBuffered.txt"));
 
-            // 버퍼에 문자열을 쓰기
-            bw.write("Hi");
-            bw.write("\nNice to meet you");
+            bw.write("안녕하세요.\n");
+            bw.write("반갑습니다.\n");
 
-            // flush 생략 가능 (close 시 자동 flush)
+            //bw.flush();
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
             if (bw != null) {
                 try {
-                    bw.close();  // 버퍼 내용 비우고 스트림 닫기
+                    bw.close();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
         }
 
-        System.out.println("==========================================================================================");
+        System.out.println("====================================================================================");
 
-        // 2. 파일 읽기 (BufferedReader 사용)
         BufferedReader br = null;
 
         try {
-            // 기본 스트림인 FileReader에 필터 스트림 BufferedReader를 연결
-            br = new BufferedReader(
-                    new FileReader("src/main/java/com/ohgiraffers/section03/filterstream/testBuffered.txt"));
+            br = new BufferedReader(new FileReader("src/main/java/com/ohgiraffers/section03/filterstream/testBuffered.txt"));
 
             String temp;
-            while ((temp = br.readLine()) != null) {
-                System.out.println(temp);  // 한 줄씩 출력
+
+            while((temp = br.readLine()) != null) {
+                System.out.println(temp);
             }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
-            try {
-                br.close();  // 자원 해제
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
