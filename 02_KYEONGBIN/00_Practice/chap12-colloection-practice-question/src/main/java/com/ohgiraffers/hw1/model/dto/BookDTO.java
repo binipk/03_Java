@@ -1,6 +1,6 @@
 package com.ohgiraffers.hw1.model.dto;
 
-public class BookDTO {
+public class BookDTO implements Comparable<BookDTO>{
 
     private int bNo;
     private int category;
@@ -55,5 +55,10 @@ public class BookDTO {
                 + ", 도서분류코드: " + category
                 + ", 도서제목: " + title
                 + ", 도서저자: " + author;
+    }
+
+    @Override
+    public int compareTo(BookDTO o) {
+        return 0;
     }
 }
