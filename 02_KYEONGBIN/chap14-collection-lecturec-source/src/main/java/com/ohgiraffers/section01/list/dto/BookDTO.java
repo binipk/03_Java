@@ -1,5 +1,7 @@
 package com.ohgiraffers.section01.list.dto;
 
+import java.util.Objects;
+
 public class BookDTO {
 
     private int number;
@@ -50,6 +52,18 @@ public class BookDTO {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        BookDTO bookDTO = (BookDTO) o;
+        return number == bookDTO.number && price == bookDTO.price && Objects.equals(title, bookDTO.title) && Objects.equals(author, bookDTO.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number, title, author, price);
+    }
+
+    @Override
     public String toString() {
         return "[" +
                 "number=" + number +
@@ -59,4 +73,3 @@ public class BookDTO {
                 ']';
     }
 }
-
