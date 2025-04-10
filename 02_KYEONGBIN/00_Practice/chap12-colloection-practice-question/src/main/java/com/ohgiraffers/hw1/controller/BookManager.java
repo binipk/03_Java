@@ -24,14 +24,21 @@ public class BookManager {
 
     }
 
-    public int serchBook(String bTitle) {}
+    public int serchBook(String bTitle) {
+        int i;
+        System.out.println("도서 제목을 입력해주세요.");
+        for (i = 0; i < bookList.size(); i++) {
+            if (bookList.get(i).getTitle().equals(bTitle)) {
+            }
+        } return bookList.get(i).getbNo();
+    }
 
     public void printBook(int index) {}
 
     public void displayAll() {}
 
     public ArrayList<BookDTO> sortedBookList(int i) {
-        Scanner sc = new Scanner(System.in);
+
         while (true) {
             System.out.println("""
                 정렬 방식을 선택해 주세요:
@@ -39,10 +46,10 @@ public class BookManager {
                 2. 내림차순
                 0. 이전 메뉴로 돌아가기""");
 
-            int select = sc.nextInt();
+            int select = i;
 
             if (select == 1) {
-                Collections.sort(bookList);  // BookDTO가 Comparable을 구현해야 함
+                Collections.sort(bookList);
                 return bookList;
             } else if (select == 2) {
                 Collections.sort(bookList, Collections.reverseOrder());
@@ -55,8 +62,6 @@ public class BookManager {
             }
         }
     }
-
-
 
     public void printBookList(ArrayList<BookDTO> br) {}
 

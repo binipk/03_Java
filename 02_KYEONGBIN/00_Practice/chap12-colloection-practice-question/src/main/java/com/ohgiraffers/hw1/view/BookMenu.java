@@ -36,8 +36,13 @@ public class BookMenu {
                 System.out.println("삭제할 도서번호를 입력해 주세요: ");
                 bm.deleteBook(sc.nextInt());
             }
+            if (sc.nextInt() == 4) {
+                bm.serchBook(sc.nextLine());
+            }
+            if (sc.nextInt() == 5) {
+                bm.printBookList();
+            }
         }
-
     }
 
     public BookDTO inputBook() {
