@@ -2,9 +2,13 @@ package com.ohgiraffers.section04.testapp.aggregate;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Objects;
 
 // 직렬화를 해줘야함 (Serializable)
+
 public class Member implements Serializable {
+
+//    private static final long serialVersionUID = 1L;
 
     private int membNo;             // 회원 번호
     private String id;              // 회원 아이디
@@ -15,13 +19,13 @@ public class Member implements Serializable {
 
     public Member() {}
 
-    public Member(int membNo, String id, String pwd, int age, String[] hobbies) {
-        this.membNo = membNo;
+    public Member(String id, String pwd, int age, String[] hobbies) {
         this.id = id;
         this.pwd = pwd;
         this.age = age;
         this.hobbies = hobbies;
     }
+
     public Member(int membNo, String id, String pwd, int age, String[] hobbies, BloodType bloodType) {
         this.membNo = membNo;
         this.id = id;
@@ -30,7 +34,6 @@ public class Member implements Serializable {
         this.hobbies = hobbies;
         this.bloodType = bloodType;
     }
-
 
     public int getMembNo() {
         return membNo;
@@ -90,5 +93,17 @@ public class Member implements Serializable {
                 ", hobbies=" + Arrays.toString(hobbies) +
                 ", bloodType=" + bloodType +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Member member = (Member) o;
+        return membNo == member.membNo && age == member.age && Objects.equals(id, member.id) && Objects.equals(pwd, member.pwd) && Objects.deepEquals(hobbies, member.hobbies) && bloodType == member.bloodType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(membNo, id, pwd, age, Arrays.hashCode(hobbies), bloodType);
     }
 }
