@@ -4,6 +4,6 @@ public class CalculatorImpl implements Calculator {
 
     @Override
     public int sumTwoNumber(int a, int b) {
-        return 0;
+        return a + b;
     }
 }

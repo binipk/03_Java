@@ -1,4 +1,5 @@
 package com.ohgiraffers.section01.intro;
+
 /*
  * 자바에서는 메소드를 독립적으로 선언하는 것이 불가능하다.
  * 클래스나 인터페이스 내부에서만 선언되기 때문에 메소드를 가지는 클래스나 인터페이스가 필요하다.
@@ -8,11 +9,10 @@ package com.ohgiraffers.section01.intro;
  * 이러한 인터페이스를 함수적 인터페이스(functional interface)라고 하며,
  * 해당 조건을 만족하는지를 컴파일 시점에 체크해주는 기능이 @FunctionalInterface어노테이션이다.
  * */
-@FunctionalInterface // 어노테이션 (하나의 추상메소드만 사용?)
+@FunctionalInterface
 public interface Calculator {
 
     int sumTwoNumber(int a, int b);
 
-//    int minusTwoNumbers(int a, int b); 2개 이상의 추상 메소드를 입력할 수 없음 (@FunctionalInterface)
-
+    //int minusTwoNumber(int a, int b);
 }

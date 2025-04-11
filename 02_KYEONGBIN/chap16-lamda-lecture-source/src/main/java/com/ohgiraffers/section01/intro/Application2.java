@@ -1,20 +1,20 @@
 package com.ohgiraffers.section01.intro;
 
+import java.sql.SQLOutput;
+
 public class Application2 {
+
     public static void main(String[] args) {
 
-        OuterCalculator.Sum sum = (x, y) -> x + y; // 기능(구현체) 구성
-        System.out.println("Sum of 10 and 20: " + (sum.sumTwoNumber(10, 20)));
-
+        OuterCalculator.Sum sum = (x, y) -> x + y;
         OuterCalculator.Minus minus = (x, y) -> x - y;
-        System.out.println("Minus of 10 and 20: " + (minus.minusTwoNumber(10, 20)));
-
         OuterCalculator.Multiple multiple = (x, y) -> x * y;
-        System.out.println("Multiple of 10 and 20: " + (multiple.multipleTwoNumber(10, 20)));
+        OuterCalculator.Devide divide = (x, y) -> x / y;
 
-        OuterCalculator.Devide devide = (x, y) -> x / y;
-        System.out.println("division of 10 and 20: " + (devide.divideTwoNumber(10, 20)));
-
+        System.out.println("20과 10의 합 : " + sum.sumTwoNumber(10, 10));
+        System.out.println("20과 10의 차 : " + minus.minusTwoNumber(20, 10));
+        System.out.println("20과 10의 곱 : " + multiple.multipleTwoNumber(20, 10));
+        System.out.println("20과 10의 나누기 : " + divide.devideTwoNumber(20, 10));
 
     }
 }

@@ -4,45 +4,31 @@ import java.time.LocalDateTime;
 import java.util.function.BooleanSupplier;
 import java.util.function.IntSupplier;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public class Application2 {
-    public static boolean main(String[] args) {
+
+    public static void main(String[] args) {
 
         Supplier<LocalDateTime> s = new Supplier<LocalDateTime>() {
             @Override
             public LocalDateTime get() {
-                return null;
+                return LocalDateTime.now();
             }
         };
 
         Supplier<LocalDateTime> supplier = () -> LocalDateTime.now();
         System.out.println(supplier.get());
 
-        BooleanSupplier b = () -> {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
+        BooleanSupplier booleanSupplier = () -> {
             int random = (int) (Math.random() * 2);
-            return random == 0 ? false : true;
-
+            return random == 0? false: true;
         };
-        System.out.println("randomNumber : " + b.getAsBoolean());
 
-        IntSupplier intSupplier = () ->
-                (int) (Math.random() * 6) + 1;
-        System.out.println();
+        System.out.println("랜덤 true or false : " + booleanSupplier.getAsBoolean());
+
+        IntSupplier intSupplier = () -> (int) (Math.random() * 6) + 1;
+        System.out.println("주사위를 던져서 나온 수 : " + intSupplier.getAsInt());
+
     }
 }
