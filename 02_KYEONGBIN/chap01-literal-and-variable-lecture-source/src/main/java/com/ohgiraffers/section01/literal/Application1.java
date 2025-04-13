@@ -1,51 +1,33 @@
 package com.ohgiraffers.section01.literal;
 
-import java.util.*;
-
-/***
- * Author : 유승제
- */
 public class Application1 {
 
-    /***
-     * 메소드의 요약기능을합니다
-     * @param args
-     */
     public static void main(String[] args) {
-        // 한줄 주석
 
-        /*
-        * 여기도 주석
-        * 아래도 주석
-        *     여러줄 주석
-        * */
-        System.out.println("Hello World!");
+        // 문자열 출력
+        System.out.println("Hello World!");       // 큰따옴표로 묶인 문자열 출력
 
-        // 여러 가지 값의 형태를 출력할 수 있다.
-        // 정수 형태의 값 출력
-        System.out.println(123);
+        // 정수 출력
+        System.out.println(123);                  // 정수 리터럴 출력
 
-        // 실수 형태의 값 출력
-        System.out.println(1.234);
+        // 실수 출력
+        System.out.println(1.234);                // 실수 리터럴 출력
 
-        // 문자 형태의 값 출력
-        System.out.println('a');
-        System.out.println('1');
-        System.out.println('\u0000');
-        //System.out.println(''); // 아무 문자도 기록되지않는 경우에도 오류
+        // 문자 출력
+        System.out.println('a');                  // 문자 리터럴 출력 (작은따옴표 사용)
+        System.out.println('1');                  // 숫자처럼 보여도 문자 리터럴 (문자 '1')
+        System.out.println('\u0000');             // 유니코드 문자 출력 (널 문자)
 
-        // 문자열 형태의 값 출력
-        System.out.println("안녕하세요");
-        System.out.println("a");
-        System.out.println("");
+        // System.out.println('');                // 오류 발생: 빈 문자는 사용할 수 없음
 
-        // 논리 형태의 값 출력
-        System.out.println(true);
-        System.out.println(false);
-        System.out.println("true");
+        // 문자열 출력
+        System.out.println("안녕하세요");           // 문자열 리터럴 (한글도 출력 가능)
+        System.out.println("a");                  // 문자열로서의 'a' (문자와는 다름)
+        System.out.println("");                   // 빈 문자열 출력
 
-
-
-
+        // 논리값 출력
+        System.out.println(true);                 // boolean 리터럴 true
+        System.out.println(false);                // boolean 리터럴 false
+        System.out.println("true");               // 문자열 "true" (논리값 아님)
     }
 }
