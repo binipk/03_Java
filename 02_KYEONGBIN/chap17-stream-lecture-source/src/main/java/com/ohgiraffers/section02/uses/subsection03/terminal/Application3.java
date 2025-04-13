@@ -9,59 +9,38 @@ public class Application3 {
 
     public static void main(String[] args) {
 
-        // Member 객체를 담은 리스트 생성
+        /*
+        * collect()는 Collector타입을 받아서 처리하는데, 해당 메소드를 통해 컬렉션을 출력으로 받을 수 있다.
+        * collect() 메소드는 Collector 객체에서 제공하는 정적 메소드를 사용할 수 있다.
+        * */
         List<Member> memberList = Arrays.asList(
                 new Member("test01", "testName01"),
                 new Member("test02", "testName02"),
                 new Member("test03", "testName03")
         );
 
-        // 전체 Member 객체 출력
-        for (Member m : memberList) {
-            System.out.println(m);
-        }
+        System.out.println("memberList = " + memberList);
 
-        // --------------------------------------
-        // 1. 전통 방식: name만 꺼내서 새 리스트 만들기
-        List<String> stringList = new ArrayList<>();
-        for (Member member : memberList) {
-            stringList.add(member.getName());
-        }
+        // name값만 따로 list로 만들어줄래?????
+//        List<String> stringList = new ArrayList<>();
+//
+//        for(Member member : memberList) {
+//            stringList.add(member.getName());
+//        }
+//
+//        System.out.println("stringList = " + stringList);
 
-        // name 리스트 출력
-        for (String s : stringList) {
-            System.out.println(s);
-        }
-
-        // --------------------------------------
-        // 2. Stream 사용: name만 추출해서 리스트로 수집
         List<String> collectorCollection = memberList.stream()
-                .map(Member::getName)                         // name만 추출
-                .collect(Collectors.toList());                // 리스트로 수집
+                                                    .map(Member::getName)
+                                                    .collect(Collectors.toList());
 
-        for (String s : collectorCollection) {
-            System.out.println(s);
-        }
+        System.out.println("collectorCollection = " + collectorCollection);
 
-        // --------------------------------------
-        // 3. name들을 하나의 문자열로 연결 (구분자 없이)
-        String str = memberList.stream()
-                .map(Member::getName)
-                .collect(Collectors.joining());               // 구분자 없음
+        String str = memberList.stream().map(Member::getName).collect(Collectors.joining());
+        System.out.println("str = " + str);
 
-        // 문자열을 ,로 나눈 후 출력 (실제로 ,는 없지만 형식 맞춤)
-        for (String s : str.split(",")) {
-            System.out.println(s);
-        }
+        String str2 = memberList.stream().map(Member::getName).collect(Collectors.joining(",", "✌️", "🥕"));
+        System.out.println("str2 = " + str2);
 
-        // --------------------------------------
-        // 4. 문자열 연결 + 구분자 "," + 접두사/접미사 추가
-        String str2 = memberList.stream()
-                .map(Member::getName)
-                .collect(Collectors.joining(",", "❤️", "🥩")); // "," 구분, 앞❤️ 뒤🥩
-
-        for (String s : str2.split(",")) {
-            System.out.println(s);
-        }
     }
 }

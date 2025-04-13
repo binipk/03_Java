@@ -7,48 +7,46 @@ import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 public class Application2 {
+
     public static void main(String[] args) {
-
-        // IntStream.range(시작, 끝): 시작부터 1씩 증가해서 '끝-1'까지 출력 (종료값 미포함)
-        IntStream iS = IntStream.range(0, 5);
-        iS.forEach(value -> System.out.print(value + " "));
-        System.out.println();
-
-        System.out.println("----------------------------------");
-
-        // LongStream.rangeClosed(시작, 끝): 시작부터 1씩 증가해서 '끝'까지 출력 (종료값 포함)
-        LongStream ls = LongStream.rangeClosed(5, 10);
-        ls.forEach(value -> System.out.print(value + " "));
+        
+        /*
+        * range(시작값, 종료값) : 시작값부터 1씩 증가하는 숫자로 종료값 전까지 범위의 스트림생성
+        * rangeClosed(시작값, 종료값) : 시작값부터 1씩 증가하는 숫자로 종료값까지 범위의 스트림 생성
+        * */
+        IntStream intStream = IntStream.range(5, 10);
+        intStream.forEach(value -> System.out.print(value + " "));
 
         System.out.println();
+        LongStream longStream = LongStream.rangeClosed(5, 10);
+        longStream.forEach(value -> System.out.print(value + " "));
 
-        // doubles(갯수): 난수를 생성해서 double 스트림으로 반환
-        // boxed(): double → Double (객체 타입)으로 변환
-        Stream<Double> dS = new Random().doubles(5).boxed();
-        dS.forEach(value -> System.out.print(value + " "));
+        /*
+        * Wrapper클래스 자료형의 스트림으로 변환이 필요한 경우 boxing할 수 있다.
+        * doubles(갯수) : 난수를 활용한 DoubleStream을 갯수만큼 생성하여 반환한다.
+        * boxed() : 기본 타입 스트림인 XXXStream을 박싱하여 Wrapper타입의 Stream<XXX>으로 반환한다.
+        * */
+        System.out.println();
+        Stream<Double> doubleStream = new Random().doubles(5).boxed();
+        doubleStream.forEach(value -> System.out.print(value + " "));
 
         System.out.println();
-
-        // 문자열 "hello World"를 문자 단위로 쪼개서 IntStream으로 반환 (char값 → int)
-        IntStream helloWorldChars = "hello World".chars();
-        helloWorldChars.forEach(value -> System.out.print((char)value + " "));
-
+        IntStream helloworldChars = "hello world".chars();
+        helloworldChars.forEach(value -> System.out.print((char)value + " "));
         System.out.println();
 
-        // 문자열을 구분자(", ")로 나눠서 스트림으로 변환
-        Stream<String> sS = Pattern.compile(", ").splitAsStream("heml, css, js");
+        Stream<String> splitStream = Pattern.compile(", ").splitAsStream("html, css, javascript");
+        splitStream.forEach(System.out::println);
 
-        // 문자열 배열처럼 직접 스트림 생성
-        Stream<String> stS = Stream.of("heml", "css", "js");
+        Stream<String> stringStream = Stream.of("hello", "world", "java");
+        Stream<String> stringStream2 = Stream.of("welcome", "to", "java");
+//        stringStream.forEach(System.out::println);
+//        stringStream2.forEach(System.out::println);
 
-        System.out.println();
-
-        // 두 개의 스트림을 합쳐서 하나로 만들기 (동일한 타입일 때만 가능)
-        Stream<String> stS2 = Stream.of("welcome", "to", "js");
-
-        // 스트림은 1회성이라 sS, stS를 위에서 사용하면 다시 사용할 수 없음
-        // 그래서 위에 주석 처리하고 concat만 실행
-        Stream<String> ccS = Stream.concat(sS, stS2);
-        ccS.forEach(value -> System.out.print(value + " "));
+        // concat()을 이용하여 두개의 스트림을 동일 타입 스트림으로 합칠 수 있다.
+        // 스트림은 1회성으로 사용 가능하며 이미 열린 스트림은 재사용이 불가능하다.
+        // 위에꺼 주석을 안하면 IllegalStateException 발생한다.
+        Stream<String> concatStream = Stream.concat(stringStream, stringStream2);
+        concatStream.forEach(value -> System.out.print(value + " "));
     }
 }
