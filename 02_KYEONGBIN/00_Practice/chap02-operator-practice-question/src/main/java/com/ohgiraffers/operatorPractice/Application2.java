@@ -1,5 +1,7 @@
 package com.ohgiraffers.operatorPractice;
 
+import java.util.Scanner;
+
 public class Application2 {
 
     public static void main(String[] args) {
@@ -14,16 +16,45 @@ public class Application2 {
          * 청소년
          * */
 
-        int ages = 19;
+        Scanner sc = new Scanner(System.in);
 
-        if (ages > 13 && ages <= 19) {
+        while (true) {
+            System.out.println("Enter your age: \nEnter 'q' to quit");
+            String input = sc.nextLine();
+            
+            if (input.equalsIgnoreCase("q")) {
+                System.out.println("Exiting the program!");
+                break;
+            }
 
-            System.out.println("청소년");
-        } else if (ages > 19) {
-            System.out.println("성인");
-        } else if (ages <= 13) {
-            System.out.println("어린이이");
+            try {
+                int age = Integer.parseInt(input);
+
+                if (age <= 13 && age > 0) {
+                    System.out.println("어린이");
+                } else if (age > 13 && age <= 19) {
+                    System.out.println("청소년");
+                } else if (age > 19) {
+                    System.out.println("성인");
+                } else {
+                    System.out.println("다시 입력해 주세요!!");
+                } 
+            } catch (NumberFormatException e) {
+                System.out.println("다시 입력해 주세요!!");
+            }
+
+
+
+            
         }
+        sc.close();
+
+
+
+
+
+
+
 
 
     }

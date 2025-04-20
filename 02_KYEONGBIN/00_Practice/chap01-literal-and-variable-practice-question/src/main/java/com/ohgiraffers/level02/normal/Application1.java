@@ -11,8 +11,8 @@ public class Application1 {
          * 문자 a의 unicode : 97
          * */
 
-        char str = 'a';
-        System.out.println((int) str);
+        char ch = 'a';
+        System.out.println("The unicode for the 'a' is "+ (int) ch);
 
 
     }

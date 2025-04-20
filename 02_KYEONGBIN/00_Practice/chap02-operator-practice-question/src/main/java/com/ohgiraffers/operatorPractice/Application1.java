@@ -1,5 +1,7 @@
 package com.ohgiraffers.operatorPractice;
 
+import java.util.Scanner;
+
 public class Application1 {
 
     public static void main(String[] args) {
@@ -15,12 +17,33 @@ public class Application1 {
          * 홀수
          * */
 
-        int su = 9;
-        if (su % 2 == 0) {
-            System.out.println("짝수 입니다.");
-        } else {
-            System.out.println("홀수 입니다.");
+        Scanner sc = new Scanner(System.in);
+
+
+        while (true) {
+
+            System.out.println("Please enter the number: \nEnter'q' to quit!");
+
+            String input = sc.nextLine();
+
+            if (input.equalsIgnoreCase("q")) {
+                System.out.println("Exiting the program!");
+                break;
+            }
+
+            try {
+                int num = Integer.parseInt(input);
+                if (num % 2 == 0) {
+                    System.out.println("The number is even!");
+                } else {
+                    System.out.println("the number is odd!");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Your enter is incorrect! please enter again!");
+            }
         }
+        sc.close();
+
         
 
     }

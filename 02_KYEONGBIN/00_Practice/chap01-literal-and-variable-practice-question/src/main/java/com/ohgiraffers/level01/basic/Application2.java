@@ -16,11 +16,7 @@ public class Application2 {
         double width = 12.5;
         double height = 36.4;
 
-        System.out.println(" 넓이: " + (width * height));
-        System.out.println(" 둘레: " + 2 * (width + height));
-
-
-
-
+        System.out.println("The area of the square is " + (width * height));
+        System.out.println("The circumference of the square is " + (2 * (width + height)));
     }
 }
