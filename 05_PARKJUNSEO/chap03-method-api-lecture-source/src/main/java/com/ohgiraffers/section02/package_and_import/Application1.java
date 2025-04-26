@@ -13,5 +13,6 @@ public class Application1 {
 
         int maxResult = com.ohgiraffers.section01.method.Calculator.maxNumberOf(100, 50);
         System.out.println("둘 중에 더 큰 수는 " + maxResult);
+
     }
 }

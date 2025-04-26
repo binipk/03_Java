@@ -3,6 +3,37 @@ package com.ohgiraffers.section02.level02.normal;
 public class Application2 {
 
     public static void main(String[] args) {
+        String[] sArr = {"홍길동","이순신","유관순","윤봉길","장영실","임꺽정"
+                        ,"장보고","이태백","김정희","대조영","김유신","이사부"};
+
+        String[][] sArr2 = new String[3][2]; // 1분단
+        String[][] sArr3 = new String[3][2]; // 2분단
+        int value = 0;
+            System.out.println("========1분단========");
+        for (int i = 0; i <3; i++) {
+            for (int j = 0; j <2; j++) {
+                sArr2[i][j] = sArr[value];
+                value++;
+            }
+        }for (int i =0; i < 3; i++) {
+            for (int j = 0; j <2; j++) {
+                System.out.print(sArr2[i][j] + " ");
+            }
+            System.out.println();
+        }for (int i = 0; i <3; i++) {
+            for (int j = 0; j <2; j++) {
+                sArr3[i][j] = sArr[value];
+                value++;
+            }
+
+        }
+        System.out.println("========2분단========");
+        for (int i =0; i < 3; i++) {
+            for (int j = 0; j <2; j++) {
+                System.out.print(sArr3[i][j] + " ");
+            }
+            System.out.println();
+        }
 
         /* 길이 12의 문자열 배열을 생성하여 12명의 학생들을 출석부 순으로 1차원 배열에 할당하고,
          * 2열 3행 2차원 배열을 2개 할당하여 각 1분단 2분단이라고 칭한다.

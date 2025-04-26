@@ -30,7 +30,7 @@ public class Application1 {
         /*
          * Rabbit과 Tiger는 Animal 클래스를 상속받음.
          *
-         * Rabbit은 Rabbit 타입이기도 하면서 Animal 타입이기도 하면서 Objict 타입이기도 하다. (상속성)
+         * Rabbit은 Rabbit 타입이기도 하면서 Animal 타입이기도 하면서 Object 타입이기도 하다. (상속성)
          * Tiger은 Tiger 타입이기도 하면서 Animal 타입이기도 하면서 Object 타입이기도 하다. (상속성)
          * */
 

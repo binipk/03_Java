@@ -1,9 +1,28 @@
 package com.ohgiraffers.section01.level02.normal;
 
+import java.util.Arrays;
+
 public class Application7 {
 
     public static void main(String[] args) {
 
+        int[] arr = new int[10];
+        for(int i =0; i < arr.length;i++){
+            arr[i] = (int)(Math.random()*10+1);
+        }
+
+        for(int num : arr){
+            System.out.print(num + " ");
+        }
+        System.out.println();
+        int max = arr[0];
+        int min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) max = arr[i];
+            if (arr[i] < min) min = arr[i];
+        }
+        System.out.println("최댓값 : " +max );
+        System.out.println("최솟값 : " + min );
         /*
          * 10개의 값을 저장할 수 있는 정수형 배열을 선언 및 할당하고
          * 1 ~ 10사이의 난수를 발생시켜 배열에 초기화 후
