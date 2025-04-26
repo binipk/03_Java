@@ -16,7 +16,7 @@ public class Product extends Object implements InterProduct, java.io.Serializabl
         System.out.println("Product 클래스의 nonStaticMethod 호출함");
     }
 
-    @OverridetMe
+    @Override
     public void abstractMethod() {
         System.out.println("Product 클래스의 abstMethod 호출함");
     }

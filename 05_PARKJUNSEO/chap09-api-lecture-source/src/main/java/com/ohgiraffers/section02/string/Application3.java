@@ -48,11 +48,11 @@ public class Application3 {
             System.out.println("st1 : " + st1.nextToken());
         }
 
-        while (st1.hasMoreTokens()) {
+        while (st2.hasMoreTokens()) {
             System.out.println("st2 : " + st2.nextToken());
         }
 
-        while (st1.hasMoreTokens()) {
+        while (st3.hasMoreTokens()) {
             System.out.println("st3 : " + st3.nextToken());
         }
 

@@ -9,7 +9,7 @@ public class Application2 {
         System.out.println("주민번호를 입력 해주세요 : ");
         String input = sc.nextLine();
         char[] charArr = input.toCharArray(); // 문자배열로 저장
-        if (charArr.length == 14 && charArr[7] =='-'){
+        if (charArr.length == 14 && charArr[6] =='-'){
             for (int i = 8; i < charArr.length; i++) {
                 charArr[i] = '*';
             }

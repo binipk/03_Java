@@ -19,11 +19,9 @@ public class LibraryMenu {
         int age = sc.nextInt();
         System.out.print("회원의 성별은: ");
         char gender = sc.next().charAt(0);
-        sc.next().charAt(0);
-        Member mem = new Member(name, age, gender);
 
         // LibraryManager의 insertMember() 메소드에 전달
-        lm.insertMember(mem);
+        lm.insertMember(new Member(name, age, gender));
 
         // 무한 반복 실행
 
@@ -45,26 +43,22 @@ public class LibraryMenu {
             // LibraryMenu의 searchBook() 호출
             // LibraryMenu의 rentBook() 호출
             int a = 0;
-            switch (a) {
-                case 1:
-                    lm.myInfo();
-                    break;
-                case 2:
-                    lm.selectAll();
-                    break;
-                case 3:
-                    lm.searchBook();
-                    break;
-                case 4:
-                    lm.rentBook();
-                case 0:
-                    flag = false;
-                    break;
-                default:
-                    break;
-            }
+
+            do {
+                switch (a) {
+                    case 1:
+                        lm.myInfo(); break;
+                    case 2:
+                        lm.selectAll(); break;
+                    case 3:
+                        lm.searchBook(); break;
+                    case 4:
+                        lm.rentBook();
+                    case 0:
+                        flag = false; break;
+                    default: break;
+                }
         } while (flag);
-    }
 
     public void selectAll() {
         // LibraryManager의 selectAll() 메소드 호출하여 결과 값 Book[] 자료형에 담기

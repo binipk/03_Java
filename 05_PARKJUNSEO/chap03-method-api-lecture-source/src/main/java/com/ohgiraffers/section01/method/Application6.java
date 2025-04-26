@@ -15,4 +15,6 @@ public class Application6 {
         System.out.println("test() 메소드 실행함");
         return "test";  // 얘는 return값을 써줘야 함. void가 아니라서
     }
+
+
 }
